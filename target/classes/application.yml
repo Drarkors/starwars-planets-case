@@ -8,7 +8,12 @@ app:
     ddl-auto: update
   routines:
     planet-sync:
-      cron: 0 0 * * * *
+      # Daily
+      #      cron: 0 0 * * * *
+      # Hourly
+      cron: 0 * * * * *
+      # Every Minute
+#      cron: * * * * * *
 
 spring:
   profiles:

@@ -20,8 +20,6 @@ public class FindManyPlanetsService {
     public Page<Planet> execute(int page, int pageSize) {
         PageRequest pageRequest = PageRequest.of(page, pageSize);
 
-        var rawPlanets = planetsRepository.findAll(pageRequest);
-
         return planetsRepository.findAll(pageRequest);
     }
 }

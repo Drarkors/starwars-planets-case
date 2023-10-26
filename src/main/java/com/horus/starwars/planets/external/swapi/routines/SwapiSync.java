@@ -18,7 +18,9 @@ public class SwapiSync {
         this.swapiPlanetsSyncService = swapiPlanetsSyncService;
     }
 
-    @Scheduled(cron = "${app.routines.planet-sync.cron}")
+    // TODO: Restore this scheduler for Daily verifications
+    //    @Scheduled(cron = "${app.routines.planet-sync.cron}")
+    @Scheduled(fixedDelay = 1000)
     public void scheduledPlanetSync() {
         var isSynced = swapiFilmsSyncCheckService.execute();
 
