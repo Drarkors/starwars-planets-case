@@ -46,7 +46,7 @@ public class SwapiPlanetsSyncService {
             return;
         }
 
-        IntStream.range(1, swapiPlanets.getCount()).parallel().forEach(this::syncPlanet);
+        IntStream.range(1, swapiPlanets.getCount() + 1).parallel().forEach(this::syncPlanet);
     }
 
     private void syncPlanet(int i) {
