@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: planets-table-add-unique-constraint-to-name
+      author: rafael.zanetti
+      runInTransaction: false
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: classpath:/db/liquidbase/v2/planets/alter-table.sql
+            relativeToChangeLog: false
+  - changeSet:
+      id: creating-swapi-info-table
+      author: rafael.zanetti
+      runInTransaction: false
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: classpath:/db/liquidbase/v2/swapi_sync_info/create-table.sql
+            relativeToChangeLog: false

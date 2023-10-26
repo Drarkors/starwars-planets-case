@@ -1,0 +1,38 @@
+app:
+  db:
+    address: 127.0.0.1
+    port: 5432
+    schema: starwars
+    user: postgres
+    password: postgres
+    ddl-auto: update
+  routines:
+    planet-sync:
+      cron: 0 0 * * * *
+
+spring:
+  profiles:
+    active: dev
+  output:
+    ansi.enabled: always
+  datasource:
+    url: jdbc:postgresql://${app.db.address}:${app.db.port}/${app.db.schema}?user=${app.db.user}&password=${app.db.password}
+  jpa:
+    hibernate.ddl-auto: ${app.db.ddl-auto}
+  liquibase:
+    contexts: ${spring.profiles.active}
+    #    default-schema: ${app.db.schema}
+    change-log: classpath:/db/liquidbase/changelog.yml
+    user: ${app.db.user}
+    password: ${app.db.password}
+    enabled: true
+
+swapi:
+  url: https://swapi.dev/api
+
+server:
+  port: ${app.port:8080}
+  connection-timeout: 600
+
+logging.level:
+  root: INFO

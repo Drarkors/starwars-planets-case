@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: enabling-uuid
+      author: rafael.zanetti
+      runInTransaction: false
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: classpath:/db/liquidbase/v1/configs/enable-uuid.sql
+            relativeToChangeLog: false
+        - sqlFile:
+            path: classpath:/db/liquidbase/v1/configs/auto-updated-at.sql
+            relativeToChangeLog: false
+  - changeSet:
+      id: create-table-planets
+      author: rafael.zanetti
+      runInTransaction: false
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: classpath:/db/liquidbase/v1/planets/create-table.sql
+            relativeToChangeLog: false
